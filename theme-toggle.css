@@ -1,0 +1,32 @@
+.theme-toggle{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--navy);background:transparent;color:var(--navy);font-size:21px;cursor:pointer}.theme-toggle .theme-moon{display:none}
+@media(hover:hover){.button,.nav-cta,.contact-btn,.theme-toggle,.nav nav>a,.product-card-link{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease,color .2s ease}.button:hover,.contact-btn:hover{transform:translateY(-2px);box-shadow:0 0 0 4px rgba(255,98,0,.15),0 12px 28px rgba(255,98,0,.34)}.nav-cta:hover,.theme-toggle:hover{transform:translateY(-2px);box-shadow:0 0 0 4px rgba(255,98,0,.12),0 10px 24px rgba(255,98,0,.25)}.nav nav>a:not(.nav-cta):not(.contact-btn):hover{color:var(--orange);text-shadow:0 0 16px rgba(255,98,0,.55)}.product-card-link:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(255,98,0,.2)}}
+html[data-theme="dark"]{color-scheme:dark;--paper:#071525;--line:rgba(234,241,255,.2)}
+html[data-theme="dark"] body{background:#071525;color:#eef3ff}
+html[data-theme="dark"] .page-glow{background:#263c78;opacity:.46}
+html[data-theme="dark"] .nav nav>a,html[data-theme="dark"] .text-link{color:#eef3ff}
+html[data-theme="dark"] .brand.logo img{filter:brightness(0) invert(1)}
+html[data-theme="dark"] .product-logo.gm-logo img{filter:brightness(0) invert(1)}
+html[data-theme="dark"] .nav-cta,html[data-theme="dark"] .theme-toggle{border-color:#eef3ff;color:#eef3ff}
+html[data-theme="dark"] .theme-toggle .theme-sun{display:none}html[data-theme="dark"] .theme-toggle .theme-moon{display:block}
+html[data-theme="dark"] .hero h1,html[data-theme="dark"] .intro h2,html[data-theme="dark"] .section h2{color:#f4f7ff}
+html[data-theme="dark"] .lead,html[data-theme="dark"] .eyebrow,html[data-theme="dark"] .section-heading>p{color:#b8c6e3}
+html[data-theme="dark"] .intro,html[data-theme="dark"] .lhp-range,html[data-theme="dark"] .compact-range,html[data-theme="dark"] .welding-range,html[data-theme="dark"] .testimonials{background:#0d2148}
+html[data-theme="dark"] .customer-form,html[data-theme="dark"] .enquiry-form{background:#0d2148}
+html[data-theme="dark"] .motor-finder,html[data-theme="dark"] .finder-form{background:#0d2148}
+html[data-theme="dark"] .form-field label,html[data-theme="dark"] .form-field input,html[data-theme="dark"] .form-field textarea,html[data-theme="dark"] .form-reset,html[data-theme="dark"] .form-cancel{color:#f4f7ff}
+html[data-theme="dark"] .form-field input,html[data-theme="dark"] .form-field textarea{background:#091a38;border-color:rgba(234,241,255,.25)}
+html[data-theme="dark"] .form-field select{background:#091a38;border-color:rgba(234,241,255,.25);color:#f4f7ff}
+html[data-theme="dark"] .unit-input span{color:#b8c6e3}
+html[data-theme="dark"] .form-reset,html[data-theme="dark"] .form-cancel{border-color:#eef3ff}
+html[data-theme="dark"] .intro-grid p,html[data-theme="dark"] .about-signoff{color:#d2dcf1!important}
+html[data-theme="dark"] .service-card:hover,html[data-theme="dark"] .product-card-link:hover{background:#102b5d}
+html[data-theme="dark"] .service-icon,html[data-theme="dark"] .product-icon,html[data-theme="dark"] .product-card-link,html[data-theme="dark"] .range-card h3,html[data-theme="dark"] .range-card dd{color:#f4f7ff}
+html[data-theme="dark"] .service-card p,html[data-theme="dark"] .range-card>span,html[data-theme="dark"] .range-card dt,html[data-theme="dark"] .range-intro{color:#b8c6e3}
+html[data-theme="dark"] .gear-range,html[data-theme="dark"] .contact{background:#091a38;color:#f4f7ff}
+html[data-theme="dark"] .gear-range .section-heading h2,html[data-theme="dark"] .contact h2,html[data-theme="dark"] .gear-range .range-card h3,html[data-theme="dark"] .gear-range .range-card dd{color:#f4f7ff}
+html[data-theme="dark"] .gear-range .eyebrow,html[data-theme="dark"] .gear-range .range-intro,html[data-theme="dark"] .gear-range .range-card>span,html[data-theme="dark"] .gear-range .range-card dt,html[data-theme="dark"] .contact .light,html[data-theme="dark"] .contact-content>p:not(.eyebrow){color:#b8c6e3}
+html[data-theme="dark"] .gear-range .drive-diagram{border-color:rgba(234,241,255,.25);background:rgba(255,255,255,.04)}html[data-theme="dark"] .gear-range .diagram-copy h3{color:#fff}html[data-theme="dark"] .gear-range .diagram-copy small,html[data-theme="dark"] .gear-range .diagram-labels{color:#c4ccdd;fill:#c4ccdd}html[data-theme="dark"] .gear-range .drive-diagram svg{color:#fff}
+html[data-theme="dark"] .contact-details,html[data-theme="dark"] .contact-details>div{border-color:rgba(234,241,255,.2)}
+html[data-theme="dark"] .contact-details dd,html[data-theme="dark"] .contact-details dd a{color:#f4f7ff}
+html[data-theme="dark"] footer p,html[data-theme="dark"] footer a{color:#b8c6e3}
+@media(max-width:760px){.theme-toggle{width:42px;height:42px}.nav nav .theme-toggle{margin-top:6px}}

@@ -1,0 +1,7 @@
+body.intro-pending{overflow:hidden}
+.brand-intro{position:fixed;z-index:100;inset:0;display:grid;place-content:center;background:linear-gradient(135deg,var(--paper),#fff);opacity:1;visibility:visible;transition:opacity .45s ease,visibility .45s ease}
+.brand-intro.is-complete{opacity:0;visibility:hidden}
+.intro-logo-wrap{position:relative;width:min(620px,92vw);aspect-ratio:1;overflow:visible;animation:intro-logo 2.6s ease-in-out both}
+.intro-logo-wrap img{display:block;width:100%;height:100%;object-fit:contain}
+html[data-theme="dark"] .intro-logo-wrap img{filter:brightness(0) invert(1)}
+@keyframes intro-logo{0%{opacity:0}22%{opacity:1}78%{opacity:1}100%{opacity:0}}
