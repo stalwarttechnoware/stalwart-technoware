@@ -1,4 +1,4 @@
-.brochure-btn{border:1px solid var(--navy);padding:15px 20px}.brochure-btn b{font-size:18px;margin-left:6px}
+.brochure-btn{border:0;padding:0}.brochure-btn b{font-size:18px;margin-left:6px}
 html[data-theme="dark"] .brochure-btn{border-color:#eef3ff}
 @media(hover:hover){.brochure-btn{transition:transform .2s ease,box-shadow .2s ease,color .2s ease}.brochure-btn:hover{color:var(--orange)!important;transform:translateY(-2px);box-shadow:0 0 0 4px rgba(255,98,0,.12),0 10px 24px rgba(255,98,0,.25)}}
 .whatsapp-chat{position:fixed;z-index:10;right:24px;bottom:24px;display:grid;place-items:center;width:52px;height:52px;background:#25d366;color:#07351c;border-radius:50%;text-decoration:none;box-shadow:0 12px 28px rgba(37,211,102,.3)}.whatsapp-chat span{display:none}.whatsapp-chat svg{width:25px;height:25px}.whatsapp-chat:hover{transform:translateY(-2px);box-shadow:0 0 0 5px rgba(37,211,102,.16),0 14px 30px rgba(37,211,102,.4)}@media(max-width:520px){.whatsapp-chat{right:16px;bottom:16px;width:50px;height:50px}}
@@ -7,4 +7,14 @@ html[data-theme="dark"] .brochure-btn{border-color:#eef3ff}
 .back-to-top{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(10px);transition:opacity .22s ease,visibility .22s ease,transform .22s ease,box-shadow .2s ease,color .2s ease}.back-to-top.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:none}.back-to-top.is-visible:hover{transform:translateY(-3px)}
 .whatsapp-chat,.back-to-top{z-index:999!important}@media(max-width:760px){.whatsapp-chat{right:16px;bottom:calc(16px + env(safe-area-inset-bottom))}.back-to-top{right:19px;bottom:calc(78px + env(safe-area-inset-bottom));display:grid!important}}
 body.intro-pending .whatsapp-chat,body.intro-pending .back-to-top{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
-@media(max-width:760px){body:not(.intro-pending) .whatsapp-chat{position:fixed!important;z-index:2147483647!important;left:calc(100dvw - 66px)!important;right:auto!important;bottom:max(16px,env(safe-area-inset-bottom))!important;display:grid!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important}body:not(.intro-pending) .back-to-top.is-visible{position:fixed!important;z-index:2147483647!important;left:calc(100dvw - 61px)!important;right:auto!important;bottom:max(78px,calc(62px + env(safe-area-inset-bottom)))!important;display:grid!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important}}
+/* Keep the mobile canvas within the visible viewport and anchor floating controls
+   to its right edge. This avoids sideways scrolling on iOS. */
+@media(max-width:760px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden!important;overscroll-behavior-x:none;touch-action:pan-y}
+  body{position:relative;min-width:0}
+  .page-glow{display:none}
+  main,footer{width:100%;max-width:100%;min-width:0;overflow-x:hidden}
+  header,.nav{width:100%;max-width:100%;min-width:0;overflow:visible}
+  body:not(.intro-pending) .whatsapp-chat{position:fixed!important;z-index:2147483647!important;left:auto!important;right:16px!important;bottom:16px!important;display:grid!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:translateZ(0)}
+  body:not(.intro-pending) .back-to-top.is-visible{position:fixed!important;z-index:2147483647!important;left:auto!important;right:16px!important;bottom:78px!important;display:grid!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:translateZ(0)}
+}

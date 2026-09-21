@@ -11,7 +11,7 @@ body,.nav nav>a,.button,.text-link,.eyebrow,.ticker,.service-card h3,.approach h
 .nav{height:144px}.brand.logo{gap:0}.brand.logo img{display:block;width:clamp(300px,25vw,400px);height:110px;object-fit:cover;object-position:center 52%}footer .brand.logo img{width:285px;height:100px}
 .nav nav>a,.text-link{color:var(--navy)}
 .nav nav>a{font-size:15px}.nav-cta{padding:15px 20px}.nav-cta b{font-size:18px}
-.nav-cta+.contact-btn{margin-left:-20px}.motor-assistant-btn{border:1px solid var(--navy);padding:15px 18px}.motor-assistant-btn b{display:inline-block;margin-left:7px;font-size:16px;line-height:1}.contact-btn{background:var(--orange);border:1px solid var(--orange);color:#fff!important;padding:15px 20px}.contact-btn b{font-size:18px;margin-left:6px}
+.nav-cta+.contact-btn{margin-left:0}.motor-assistant-btn{border:0;padding:0}.motor-assistant-btn b{display:inline-block;margin-left:7px;font-size:16px;line-height:1}.contact-btn{background:transparent;border:0;color:var(--navy)!important;padding:0}.contact-btn b{font-size:18px;margin-left:6px}
 .nav-cta{border-color:var(--navy)}
 .brand-mark{background:var(--navy);color:var(--orange)}
 .eyebrow{color:#5c6680;font-size:13px;letter-spacing:.18em}.eyebrow i{background:var(--orange)}

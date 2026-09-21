@@ -1,12 +1,27 @@
-.theme-toggle{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--navy);background:transparent;color:var(--navy);font-size:21px;cursor:pointer}.theme-toggle .theme-moon{display:none}
+.theme-toggle{display:grid;place-items:center;width:auto;height:auto;padding:0;border:0;background:transparent;color:var(--navy);font-size:21px;cursor:pointer}.theme-toggle .theme-moon{display:none}
 @media(hover:hover){.button,.nav-cta,.contact-btn,.theme-toggle,.nav nav>a,.product-card-link{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease,color .2s ease}.button:hover,.contact-btn:hover{transform:translateY(-2px);box-shadow:0 0 0 4px rgba(255,98,0,.15),0 12px 28px rgba(255,98,0,.34)}.nav-cta:hover,.theme-toggle:hover{transform:translateY(-2px);box-shadow:0 0 0 4px rgba(255,98,0,.12),0 10px 24px rgba(255,98,0,.25)}.nav nav>a:not(.nav-cta):not(.contact-btn):hover{color:var(--orange);text-shadow:0 0 16px rgba(255,98,0,.55)}.product-card-link:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(255,98,0,.2)}}
 html[data-theme="dark"]{color-scheme:dark;--paper:#071525;--line:rgba(234,241,255,.2)}
 html[data-theme="dark"] body{background:#071525;color:#eef3ff}
 html[data-theme="dark"] .page-glow{background:#263c78;opacity:.46}
 html[data-theme="dark"] .nav nav>a,html[data-theme="dark"] .text-link{color:#eef3ff}
+html[data-theme="dark"] .nav .contact-btn{color:#fff!important}
 html[data-theme="dark"] .brand.logo img{filter:brightness(0) invert(1)}
 html[data-theme="dark"] .product-logo.gm-logo img{filter:brightness(0) invert(1)}
 html[data-theme="dark"] .nav-cta,html[data-theme="dark"] .theme-toggle{border-color:#eef3ff;color:#eef3ff}
+html[data-theme="dark"] .nav .menu-toggle span{background:#fff!important}
+.nav nav{gap:20px}
+.nav{position:sticky;top:0;z-index:50;background:var(--paper)}
+.nav{height:112px}.brand.logo img{height:88px}
+/* Desktop sections remain full-bleed, with compact side gutters so the
+   working content makes use of the available screen width. */
+@media(min-width:761px){
+  .nav,.hero,.section,.impact,.contact,footer{width:100%;max-width:none;margin-inline:0}
+  .nav{padding-left:clamp(18px,2vw,34px);padding-right:clamp(32px,5vw,88px)}
+  .hero,.section,.impact,.contact{padding-inline:clamp(32px,5vw,88px)}
+}
+@media(max-width:760px){.nav{height:96px}.brand.logo img{height:64px}.nav nav{top:96px}}
+.ticker{height:48px}
+.ticker .ticker-track>span{padding-inline:0!important}
 html[data-theme="dark"] .theme-toggle .theme-sun{display:none}html[data-theme="dark"] .theme-toggle .theme-moon{display:block}
 html[data-theme="dark"] .hero h1,html[data-theme="dark"] .intro h2,html[data-theme="dark"] .section h2{color:#f4f7ff}
 html[data-theme="dark"] .lead,html[data-theme="dark"] .eyebrow,html[data-theme="dark"] .section-heading>p{color:#b8c6e3}
@@ -29,4 +44,4 @@ html[data-theme="dark"] .gear-range .drive-diagram{border-color:rgba(234,241,255
 html[data-theme="dark"] .contact-details,html[data-theme="dark"] .contact-details>div{border-color:rgba(234,241,255,.2)}
 html[data-theme="dark"] .contact-details dd,html[data-theme="dark"] .contact-details dd a{color:#f4f7ff}
 html[data-theme="dark"] footer p,html[data-theme="dark"] footer a{color:#b8c6e3}
-@media(max-width:760px){.theme-toggle{width:42px;height:42px}.nav nav .theme-toggle{margin-top:6px}}
+@media(max-width:760px){.theme-toggle{width:auto;height:auto}.nav nav .theme-toggle{margin-top:6px}}
