@@ -1,4 +1,6 @@
 .theme-toggle{display:grid;place-items:center;width:auto;height:auto;padding:0;border:0;background:transparent;color:var(--navy);font-size:21px;cursor:pointer}.theme-toggle .theme-moon{display:none}
+.lhp-product-image img,.product-logo img{transform:translateY(var(--product-parallax-y,0));transition:transform .24s ease-out}
+footer{padding:16px clamp(20px,4vw,64px);gap:14px}footer .brand.logo img{width:205px;height:68px}footer div{gap:12px}
 @media(hover:hover){.button,.nav-cta,.contact-btn,.theme-toggle,.nav nav>a,.product-card-link{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease,color .2s ease}.button:hover,.contact-btn:hover{transform:translateY(-2px);box-shadow:0 0 0 4px rgba(255,98,0,.15),0 12px 28px rgba(255,98,0,.34)}.nav-cta:hover,.theme-toggle:hover{transform:translateY(-2px);box-shadow:0 0 0 4px rgba(255,98,0,.12),0 10px 24px rgba(255,98,0,.25)}.nav nav>a:not(.nav-cta):not(.contact-btn):hover{color:var(--orange);text-shadow:0 0 16px rgba(255,98,0,.55)}.product-card-link:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(255,98,0,.2)}}
 html[data-theme="dark"]{color-scheme:dark;--paper:#071525;--line:rgba(234,241,255,.2)}
 html[data-theme="dark"] body{background:#071525;color:#eef3ff}
@@ -20,6 +22,8 @@ html[data-theme="dark"] .nav .menu-toggle span{background:#fff!important}
   .hero,.section,.impact,.contact{padding-inline:clamp(32px,5vw,88px)}
 }
 @media(max-width:760px){.nav{height:96px}.brand.logo img{height:64px}.nav nav{top:96px}}
+.impact.is-scroll-ready>div{opacity:0;transform:translateY(34px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.75,.25,1)}.impact.is-scroll-ready.is-revealed>div{opacity:1;transform:none}.impact.is-scroll-ready.is-revealed>div:nth-child(2){transition-delay:.12s}.impact.is-scroll-ready.is-revealed>div:nth-child(3){transition-delay:.24s}.impact.is-scroll-ready.is-revealed>div:nth-child(4){transition-delay:.36s}@media(prefers-reduced-motion:reduce){.impact.is-scroll-ready>div{opacity:1;transform:none;transition:none}}
+
 .ticker{height:48px}
 .ticker .ticker-track>span{padding-inline:0!important}
 html[data-theme="dark"] .theme-toggle .theme-sun{display:none}html[data-theme="dark"] .theme-toggle .theme-moon{display:block}
@@ -45,3 +49,5 @@ html[data-theme="dark"] .contact-details,html[data-theme="dark"] .contact-detail
 html[data-theme="dark"] .contact-details dd,html[data-theme="dark"] .contact-details dd a{color:#f4f7ff}
 html[data-theme="dark"] footer p,html[data-theme="dark"] footer a{color:#b8c6e3}
 @media(max-width:760px){.theme-toggle{width:auto;height:auto}.nav nav .theme-toggle{margin-top:6px}}
+@media(max-width:760px),(prefers-reduced-motion:reduce){.lhp-product-image img,.product-logo img{transform:none;transition:none}}
+@media(max-width:760px){footer{padding:13px 16px;gap:12px}footer .brand.logo img{width:168px;height:56px}footer p{margin:0}}

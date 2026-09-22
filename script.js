@@ -25,6 +25,28 @@ themeToggle.addEventListener('click', () => {
   setTheme(theme);
 });
 
+const motionIsReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const parallaxImages = [...document.querySelectorAll('.lhp-product-image img, .product-logo img')];
+if (parallaxImages.length && !motionIsReduced) {
+  let parallaxFrame;
+  const updateProductParallax = () => {
+    parallaxFrame = undefined;
+    const viewportMiddle = window.innerHeight / 2;
+    parallaxImages.forEach(image => {
+      const bounds = image.getBoundingClientRect();
+      const distance = (bounds.top + bounds.height / 2 - viewportMiddle) / window.innerHeight;
+      const offset = Math.max(-8, Math.min(8, distance * -16));
+      image.style.setProperty('--product-parallax-y', `${offset.toFixed(2)}px`);
+    });
+  };
+  const requestProductParallax = () => {
+    if (!parallaxFrame) parallaxFrame = requestAnimationFrame(updateProductParallax);
+  };
+  window.addEventListener('scroll', requestProductParallax, { passive: true });
+  window.addEventListener('resize', requestProductParallax);
+  requestProductParallax();
+}
+
 const brandIntro = document.querySelector('.brand-intro');
 const finishBrandIntro = () => {
   window.setTimeout(() => {
@@ -36,6 +58,67 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', finishBrandIntro, { once: true });
 } else {
   finishBrandIntro();
+}
+
+const impactSection = document.querySelector('.impact');
+const impactValues = [...document.querySelectorAll('.impact-value')].map(element => ({
+  element,
+  number: element.querySelector('.impact-number'),
+  target: Number(element.dataset.target),
+  suffix: element.dataset.suffix || ''
+}));
+
+const formatImpactValue = value => value >= 5000 ? value.toLocaleString('en-IN') : String(value);
+const decryptCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+const impactText = ({ target, suffix }) => `${formatImpactValue(target)}${suffix}`;
+const decryptImpactText = (item, progress, now) => {
+  const finalText = impactText(item);
+  return [...finalText].map((character, index) => {
+    if (!/[A-Z0-9]/i.test(character) || progress >= (index + 1) / finalText.length) return character;
+    return decryptCharacters[Math.floor(now / 38 + index * 11) % decryptCharacters.length];
+  }).join('');
+};
+const renderImpactValue = ({ number }, text) => {
+  number.textContent = text;
+};
+const showImpactValues = () => impactValues.forEach(item => renderImpactValue(item, impactText(item)));
+
+const animateImpactValues = () => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    showImpactValues();
+    return;
+  }
+  const startedAt = performance.now();
+  const duration = 1200;
+  const stagger = 170;
+  const tick = now => {
+    let isAnimating = false;
+    impactValues.forEach((item, index) => {
+      const progress = Math.min(Math.max((now - startedAt - index * stagger) / duration, 0), 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      renderImpactValue(item, decryptImpactText(item, eased, now));
+      if (progress < 1) isAnimating = true;
+    });
+    if (isAnimating) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+};
+
+if (impactSection && impactValues.length) {
+  impactSection.classList.add('is-scroll-ready');
+  impactValues.forEach(item => renderImpactValue(item, impactText(item).replace(/[A-Z0-9]/gi, '•')));
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      if (!entries.some(entry => entry.isIntersecting)) return;
+      impactSection.classList.add('is-revealed');
+      animateImpactValues();
+      observer.disconnect();
+    }, { threshold: 0.35 });
+    observer.observe(impactSection);
+  } else {
+    impactSection.classList.add('is-revealed');
+    showImpactValues();
+  }
 }
 
 const enquiryForm = document.querySelector('.enquiry-form');
