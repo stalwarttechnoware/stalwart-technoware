@@ -9,6 +9,15 @@ nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
   nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false');
 }));
 
+const footerCopyright = document.querySelector('footer p');
+if (footerCopyright && !footerCopyright.querySelector('.developer-credit')) {
+  const developerLink = document.createElement('a');
+  developerLink.className = 'developer-credit';
+  developerLink.href = '#contact';
+  developerLink.textContent = 'Stalwart Technoware';
+  footerCopyright.append(document.createElement('br'), 'Crafted by ', developerLink);
+}
+
 const themeToggle = document.querySelector('.theme-toggle');
 const savedTheme = localStorage.getItem('stalwart-theme');
 const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
