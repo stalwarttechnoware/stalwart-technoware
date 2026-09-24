@@ -11,6 +11,7 @@ nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
 
 const themeToggle = document.querySelector('.theme-toggle');
 const savedTheme = localStorage.getItem('stalwart-theme');
+const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
 
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
@@ -18,11 +19,14 @@ function setTheme(theme) {
   themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
 }
 
-setTheme(savedTheme === 'dark' ? 'dark' : 'light');
+setTheme(savedTheme || (systemTheme.matches ? 'dark' : 'light'));
 themeToggle.addEventListener('click', () => {
   const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
   localStorage.setItem('stalwart-theme', theme);
   setTheme(theme);
+});
+systemTheme.addEventListener('change', event => {
+  if (!localStorage.getItem('stalwart-theme')) setTheme(event.matches ? 'dark' : 'light');
 });
 
 const motionIsReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
